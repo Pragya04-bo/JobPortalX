@@ -1,0 +1,50 @@
+.post-job-container {
+  margin: 70px;
+  max-width: 48rem; /* Equivalent to max-w-7xl */
+  margin-left: auto; /* Equivalent to mx-auto */
+  margin-right: auto; /* Equivalent to mx-auto */
+  padding-left: 1rem; /* Equivalent to px-4 */
+  padding-right: 1rem;
+  margin-top: 100px; /* Equivalent to px-4 */
+}
+
+.input-field {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  height: 2.5rem; /* Equivalent to h-10 */
+  padding-left: 0.75rem; /* Equivalent to px-3 */
+  padding-right: 0.75rem; /* Equivalent to px-3 */
+  padding-top: 0.5rem; /* Adjust based on your design */
+  padding-bottom: 0.5rem; /* Adjust based on your design */
+  border-radius: 0.375rem; /* Equivalent to rounded-md */
+  border-width: 1px; /* Equivalent to border */
+  border-color: #d1d5db; /* Equivalent to border-gray-300 */
+  background-color: transparent; /* Equivalent to bg-transparent */
+  font-size: 0.875rem; /* Equivalent to text-sm */
+  color: #1f2937; /* Adjust based on your design */
+  placeholder-color: #9ca3af; /* Equivalent to placeholder:text-gray-400 */
+  outline: none; /* Equivalent to focus:outline-none */
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; /* Equivalent to focus:ring-1 and focus:ring-offset-1 */
+}
+
+.input-field:focus {
+  border-color: #6b7280; /* Equivalent to focus:ring-gray-400 */
+  box-shadow: 0 0 0 0.125rem rgba(107, 114, 128, 0.1); /* Equivalent to focus:ring-offset-1 */
+}
+
+.post-job-button {
+  display: inline-block;
+  padding: 0.5rem 1rem; /* Adjust based on your design */
+  font-size: 1rem; /* Adjust based on your design */
+  line-height: 1.5; /* Adjust based on your design */
+  border-radius: 0.375rem; /* Equivalent to rounded-lg */
+  background-color: #6b7280; /* Adjust based on your design */
+  color: #fff; /* Adjust based on your design */
+  cursor: pointer; /* Add cursor pointer */
+  transition: background-color 0.3s ease; /* Add transition effect */
+}
+
+.post-job-button:hover {
+  background-color: #4b5563; /* Adjust based on your design */
+}
