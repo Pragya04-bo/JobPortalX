@@ -1,7 +1,8 @@
 import React from "react";
 import { FaBuilding, FaSuitcase, FaUsers, FaUserPlus } from "react-icons/fa";
 import jobpic from '../../assests/job.jpg';
-const HeroSection = () => {
+const 
+HeroSection = () => {
   const details = [
     {
       id: 1,

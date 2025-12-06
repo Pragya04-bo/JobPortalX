@@ -13,6 +13,57 @@ export const register =catchAsyncError(async (req,res,next)=>{
             error:"Please fill full registration form!"
         });
     }
+// Flow:
+
+// User.findOne starts (async).
+
+// JS continues to User.create(...) immediately.
+
+// Outer function may already create and send response.
+
+// Later, when Mongo replies, .then() executes → tries to return res.json(...).
+
+// But by this point, response may already be sent, so Express throws Error: Can't set headers after they are sent.
+
+// So the return inside .then() has no power to stop step 2, because the function didn’t wait.
+
+// ✅ Why await solves it
+// const existingUser = await User.findOne({ email: req.body.email });
+
+// if (existingUser) {
+//   return res.json({ error: "Email exists" }); // exits whole signup function
+// }
+
+// const user = await User.create({...});
+// res.json({ success: true, user });
+
+
+// Here, await pauses execution.
+// If a user exists → return exits the entire signup function → nothing after runs.
+
+// ⚡ Key rule:
+
+// return inside .then() → exits only that callback.
+
+// Outer function has already continued; you can’t go back and cancel.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     User.findOne({ email })
     .then(user => {
@@ -28,13 +79,35 @@ export const register =catchAsyncError(async (req,res,next)=>{
     });
 
     sendToken(user,200,res,"User registered successfully!");
-    // res.status(200).json({
-    //     success:true,
-    //     message:"user registered!",
-    //     user,
-    // });
+   
 }
+// User.findOne({ email })
 
+// User is your Mongoose model for the users collection in MongoDB.
+
+// .findOne(...) sends a query to MongoDB.
+
+// .findOne(...) returns a Promise that eventually resolves with:
+
+// A document object if a match is found
+
+// null if no match is found
+
+// .then(user => { ... })
+
+// When the promise resolves, the returned document (or null) is passed as the first argument to the callback — here, you named it user.
+
+// The name is arbitrary; you could call it result, doc, or even potato.
+
+// Example:
+
+// js
+// Copy
+// Edit
+// User.findOne({ email }).then(potato => {
+//     console.log(potato); // The user document or null
+// });
+// So — the name user has nothing magical. The value is automatically passed by .then() when the database query finishes.
 catch(error){
     let errorResponse = {};
 
@@ -68,6 +141,7 @@ export const login = catchAsyncError(async (req,res,next)=>{
             success:false,
             error:"Invalid email or password!"});
     }
+console.log("Comparing roles -> From Frontend:", role, "| From DB:", user.role);
 
     if(role!==user.role){
         return res.json({
@@ -111,3 +185,4 @@ export const getuser=catchAsyncError(async(req,res,next)=>{
         us
     })
 })
+

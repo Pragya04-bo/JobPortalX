@@ -2,9 +2,7 @@ export const sendToken = (user, statusCode, res, message) => {
     const token = user.getJWTToken();
     if (!token) {
         throw new Error('Failed to generate token');
-    }
-    
-    const options = {
+    }const options = {
         expires: new Date(Date.now() + Number(process.env.COOKIE_EXPIRES) * 24 * 60 * 60 * 1000),
         httpOnly: true,
         // domain: "job-portal-x.vercel.app",

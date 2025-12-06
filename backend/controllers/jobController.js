@@ -99,7 +99,9 @@ export const updateJob=catchAsyncError(async (req,res,next)=>{
     if(role==="Job Seeker"){
         return next (new ErrHandler("Munna, your role is to view jobs, not to update them!"),400);
     }
+// const { id } = req.params; just extracts the id property from that object and stores it in a variable id.
 
+// So id here will store the value passed in the URL after /job/.
     const {id}=req.params;
     let job = await Job.findById(id);
     if(!job){ 

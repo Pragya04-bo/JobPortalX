@@ -43,3 +43,8 @@ app.get("/", (req, res) => {
 
   app.use(errorMiddleware); // 👈 correct error handler middleware
 export default app;
+
+
+// Content-Type:application/json
+// Authorization:Bearer <Token>
+// Cookie:

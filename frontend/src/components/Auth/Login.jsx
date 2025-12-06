@@ -24,6 +24,8 @@ function Login() {
 
     const handleRegister=async (e)=>{
       e.preventDefault();
+      console.log("Logging in with: ", { email, password, role });
+
 try{
   console.log("mja");
    const {data}=await axios.post(`${BASE_URL}/user/login`,{email,password,role},{withCredentials:true,
@@ -38,7 +40,21 @@ try{
 
    setUser(data.user);
    
-  setemail("");
+// {
+//     "success": true,
+//     "user": {
+//         "_id": "68f0b4e13f2e2e3c1e685c2d",
+//         "name": "ABC",
+//         "email": "pdf@email.com",
+//         "phone": 123467890,
+//         "password": "$2b$10$znVOG8nAgndlQB7TGE57KOBV2MGc5RbS1s.R2cTM3kyATCuh35TkO",
+//         "role": "Employer",
+//         "__v": 0
+//     },
+//     "message": "User login successfully!",
+//     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4ZjBiNGUxM2YyZTJlM2MxZTY4NWMyZCIsImlhdCI6MTc2MDc4NDAzOCwiZXhwIjozNTIxNTg2MDc2fQ.EkcqMlPFyeKvP-Dfwnbg0FV_J2a5QP5Z5XJ94eSFbeE"
+// }
+setemail("");
    setpassword("");
    setrole("");
    setIsAuthorized(true);

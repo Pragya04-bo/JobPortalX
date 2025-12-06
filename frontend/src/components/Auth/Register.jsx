@@ -32,6 +32,8 @@ function Register() {
     }
     const handleRegister=async (e)=>{
       e.preventDefault();
+      console.log("Logging in with: ", { email, password, role });
+
 try{
   console.log("mja");
    const {data}=await axios.post(`${BASE_URL}/user/register`,{name,email,password,phone,role},{withCredentials:true,

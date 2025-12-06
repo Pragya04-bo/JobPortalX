@@ -1,1 +1,2 @@
-export const BASE_URL="https://jobportalx-wpxo.onrender.com";
+export const BASE_URL = "http://localhost:5000";
+

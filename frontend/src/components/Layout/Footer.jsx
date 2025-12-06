@@ -22,7 +22,7 @@ export default function FooterThree() {
             </span>
             <div className="mt-4 grow md:ml-12 md:mt-0">
               <p className="text-base font-semibold text-gray-700">
-                © 2024 Job Seeker All rights reserved.
+                © 2025 Job Seeker All rights reserved.
               </p>
             </div>
           </div>
